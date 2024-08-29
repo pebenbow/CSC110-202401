@@ -1,0 +1,41 @@
+---
+title: "In-class activity, Thursday, 8/29/2024"
+author: "Pete Benbow"
+date: "August 29, 2024"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+```
+
+Read in the incarceration data
+
+```{r}
+prison <- read_excel("justice_NY_clean.xls",
+                     skip=6)
+```
+
+1. Make a scatter plot of the % Under $25K vs rate. 
+```{r}
+
+```
+
+
+2. Use an appropriate aesthetic to indicate cost
+```{r}
+
+```
+
+3. Change the size, shape and/or color of all points in your scatterplot
+```{r}
+
+```
+
+4. What problem(s) do you encounter if you try to use the variable $cost original instead of cost?
+```{r}
+
+```
+
