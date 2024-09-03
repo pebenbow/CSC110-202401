@@ -1,0 +1,44 @@
+---
+title: "Economic Mobility Exploration"
+author: "Pete Benbow"
+date: "September 3, 2024"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+```
+
+## Read in Chetty data
+
+```{r}
+
+```
+
+## Look for correlations
+
+1.  Visualize the relationship between social capital and absolute mobility. Do you see a correlation? Is it what you expected from the Chetty study executive summary?
+
+2.  Add an aesthetic to your graph to represent whether the CZ is urban or not. Do your results suggest that Simpson's paradox could be an issue?
+
+3.  Separate urban and non-urban CZ's into two separate plots.
+
+4.  Add a smooth fit to each of your plots above. Experiment with adding the option method="lm" in your geom_smooth. What does this option do?
+
+```{r}
+
+```
+
+5.  Repeat the above plots, but substitute **relative mobility** for absolute mobility. What differences do you observe?
+
+```{r}
+
+```
+
+6.  Repeat the above plots for a different variable that was highly correlated with economic mobility.
+
+```{r}
+
+```

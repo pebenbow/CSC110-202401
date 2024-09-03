@@ -1,0 +1,230 @@
+---
+title: "R4DS notes - Chapter 3 - Data Transformation"
+author: "Pete Benbow"
+date: "Sep 3, 2024"
+output: word_document
+---
+
+This document is meant to act as a sample for how a student can take notes and complete materials in the R4DS textbook. This example comes from [Chapter 3 of R4DS](https://r4ds.hadley.nz/data-transform#introduction).
+
+# 3.1 Intro
+
+## Install and load packages
+
+```{r}
+install.packages("nycflights13")
+library(nycflights13)
+library(tidyverse)
+```
+
+## Explore the data in a tibble
+
+You can use `View(flights)` to view the data interactively in RStudio. Otherwise, this technique is a good way to get a quick glimpse of the first few rows in a dataset.
+
+Note the locations of the data types below each variable, such as dbl, int, and chr.
+
+```{r}
+flights
+```
+
+## dplyr Basics
+
+dplyr is included with tidyverse and is used for data manipulation. The first argument is always a dataframe, while the subsequent arguments usually describe what variables to operate on. The final output is always a new frame.
+
+The "pipe" operator is a great way to pass output between functions.
+
+```{r}
+flights |> 
+  filter(dest == "CLT") |>
+  group_by(year, month, day) |>
+  summarize(
+    arr_delay = mean(arr_delay, na.rom = TRUE)
+  )
+
+```
+
+# 3.2 Rows
+
+## filter()
+
+```{r}
+#1 flights with departure delay greater than 120 minutes
+flights |>
+  filter(dep_delay > 120)
+
+#2 flights that department on December 31
+flights |>
+  filter(month == 12 & day == 31)
+
+#3 flights that departed in January or February
+flights |>
+  filter(month == 1 | month == 2)
+
+#4 flights that departed in January or February, different technique using %in% and c() to concatenate
+flights |>
+  filter(month %in% c(1,2))
+
+```
+
+You can also assign the result of your query to a new data frame using the \<- assignment operator, like so:
+
+```{r}
+# Create the data frame
+dec31 <- flights |>
+  filter(month == 12 & day == 31)
+
+# View the "dec31" tibble
+dec31
+
+```
+
+## arrange()
+
+arrange() changes the order of the rows based on the value of the columns. It is akin to an ORDER BY statement in SQL.
+
+```{r}
+#1 arrange flights by year, month, day, and departure time in ascending order (default)
+flights |>
+  arrange(year, month, day, dep_time)
+
+#2 arrange flights in order from most delayed to least delayed
+flights |>
+  arrange(desc(dep_delay))
+
+```
+
+## distinct()
+
+distinct() finds all unique rows in a dataset, and can be used in many ways. For instance, it can be used to remove duplicate values, but it can also be used to find all distinct airport codes.
+
+The `.keep_all` option can be used to keep other columns when filtering for unique rows.
+
+```{r}
+#1 Remove duplicate rows, if any
+flights |> 
+  distinct()
+
+#2 Find all unique origin airports
+flights |>
+  distinct(origin)
+
+#3 Use keep-all
+flights |>
+  distinct(origin, dest, .keep_all = TRUE)
+
+```
+
+# 3.3 Columns
+
+## mutate()
+
+mutate() allows us to add new columns calculated from existing columns.
+
+You can also use arguments like `.before` and `.after` and `.keep` to modify your results.
+
+```{r}
+#1 compute the gain (how much a delayed flight made up in the air) and speed in miles PER HOUR
+flights |>
+  mutate(
+    gain = dep_delay - arr_delay,
+    speed = distance / air_time * 60
+  )
+
+#2 use the .before argument to reposition the variables
+flights |>
+  mutate(
+    gain = dep_delay - arr_delay,
+    speed = distance / air_time * 60,
+    .before = 1
+  )
+
+#3 use the after argument to reposition the variables
+flights |>
+  mutate(
+    gain = dep_delay - arr_delay,
+    speed = distance / air_time * 60,
+    .after = 4
+  )
+
+#4 use the keep argument to reposition the variables, and use the "used" argument to keep only the columns in our mutation
+flights |>
+  mutate(
+    gain = dep_delay - arr_delay,
+    speed = distance / air_time * 60,
+    .keep = "used"
+  )
+
+```
+
+## select()
+
+select() can be used to only return the variables we want. It functions much the same as the SELECT clause in SQL.
+
+```{r}
+#1 select columns by name -- note how this differs from distinct()
+flights |> 
+  select(year, month, day)
+
+#2 select all columns between two columns using the : operator
+flights |> 
+  select(year:day)
+
+#3 select all EXCEPT those between two columns using the ! operator
+flights |> 
+  select(!year:day)
+
+#4 select all columns where the data type is character
+flights |> 
+  select(where(is.character))
+
+#5 rename a variable on the fly with select()
+flights |> 
+  select(tail_num = tailnum)
+
+```
+
+## rename()
+
+If you want to keep all existing variables and just rename a few:
+
+```{r}
+flights |>
+  rename(tail_num = tailnum)
+
+```
+
+## relocate()
+
+Use relocate() to move variables around
+
+```{r}
+#1 Move some variables to the front
+flights |>
+  relocate(time_hour, air_time)
+
+#2 Use the .after argument to relocate a series of columns after another column
+flights |>
+  relocate(year:dep_time, .after = time_hour)
+
+#3 Use the .before argument to relocate all columns starting with "arr" to before the dep_time column
+flights |>
+  relocate(starts_with("arr"), .before = dep_time)
+
+```
+
+# 3.4 Pipes
+
+You can combine pipes with these mutations to run your data through a series of transformations
+
+```{r}
+flights |>
+  # get all flights to Charlotte
+  filter(dest == "CLT") |>
+  # calculate speed
+  mutate(speed = distance / air_time * 60) |>
+  # select only the columns we need
+  select(year:day, dep_time, origin, dest, carrier, flight, speed) |>
+  # sort the result by speed in descending order
+  arrange(desc(speed))
+
+```
