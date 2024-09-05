@@ -1,0 +1,126 @@
+---
+title: "Lab 1"
+author: "anonymous"
+date: "9/5/2024"
+output: pdf_document
+---
+
+# CSC110: Data Science & Society Lab 1
+
+Welcome to CSC 110 Lab 1! In this lab, you will visualize data on economic mobility in the U.S. from [Opportunity Insights] (<https://opportunityinsights.org/>) using the ggplot2 package.
+
+## INSTRUCTIONS
+
+-   Do not include your names in this file or in the name of the file
+-   Run the chunk of code that creates the chetty_top100 data frame (below)
+-   Write R code in the each code chunk that creates the plots described, and record short answers below the code chunk in a paragraph or bullet points
+-   Knit your code regularly (to html is quickest and easiest) to be sure you don't lose vital pieces of code along the way
+-   Knit your final code to a pdf file, and submit your pdf file in Gradescope. Your Rmd file will stay stored in JupyterHub if we need to refer back to it.
+
+## Set up code
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+```
+
+## Filter the data
+
+Read and filter data to get data only for the 100 largest CZs. You will work with chetty_top100 throughout this lab.
+
+```{r, include=FALSE}
+chetty <- read_excel("Lab1_Chetty_2014.xlsx", skip=1)
+
+# filter for top 100 commuting zones
+chetty_top100 <- chetty %>%
+  filter(top_100==1)
+
+# remove the larger data set with all commuting zones from the work space
+rm(chetty)
+```
+
+# Part I: Economic Mobility & Household Income Across Commuting Zones
+
+In Part I you will explore the relationship between economic mobility and a CZ characteristic not mentioned in the Executive Summary: household income per capita (hhi_percap). The mobility measure that you will use in this analysis captures the probability that a child born to a parent in quintile 1 moves to income quintile 5 as an adult (prob_q1q5).
+
+1.  
+
+    1.  Make a scatterplot with household income per capita on the x-axis, and mobility on the y-axis.
+    2.  Describe the chart: what is the range of the x-axis? What is the range of the y-axis? Do you think there is a relationship between these two variables?
+
+    ```{r}
+
+    ```
+
+2.  
+
+    1.  Use color to represent the geographic region (region) to your scatterplot.
+    2.  What patterns does this reveal? Describe the distribution of the data, by region.
+    3.  Which region(s) appears to have the most CZs with mobility\>10%?
+    4.  Which region(s) appears to have the most CZs with mobility\<5%?\
+
+    ```{r}
+
+    ```
+
+3.  
+
+    1.  Represent geographic region on your scatterplot using shape instead of color.
+    2.  Compare the use of color vs shape to represent the region: what are the benefits and drawbacks of each?\
+
+    ```{r}
+
+    ```
+
+4.  
+
+    1.  Going back to the chart you made in 2.1, which uses color to represent the region, add another aesthetic to represent the size of the population (pop_2000, population from the 2000 Census ).
+    2.  Describe any relationships between size and region.
+
+    ```{r}
+
+    ```
+
+5.  
+
+    1.  Split your plot into facets to display scatterplots of your data by census region.
+    2.  Compare this split plot to the combined plot from #3. Are there aspects of the relationship between hhi_percap and mobility that are easier to detect in the faceted plot than in the combined plot?
+    3.  Which regions appear to have a relatively stronger relationship between hhi_percap and mobility?\
+
+    ```{r}
+
+    ```
+
+6.  
+
+    1.  Add information on the census division to your chart using the color aesthetic.
+    2.  What does this reveal about divisional differences in the West?
+
+    ```{r}
+
+    ```
+
+7.  
+
+    1.  Create a plot of the relationship between hhi_percap and mobility with two layers: (1) A scatterplot colored by region, and (2) a smooth fit chart with no standard error also colored by region.
+    2.  What patterns does this illustrate in the data?\
+
+    ```{r}
+
+    ```
+
+8.  
+
+    1.  Create a bar chart that displays the count of CZs by census region and fill each bar using information on census division.
+    2.  What do you learn from this chart?
+    3.  Make new bar charts with position "dodge" and "fill"
+    4.  What is the relative advantage of each of the three bar charts?
+
+    ```{r}
+
+    ```
+
+# Part II: Answering your own research question
+
+Use the Chetty data to answer a different research question by choosing a CZ characteristic you have not yet explored (i.e., other than hhi_percap, social_capital and gini). Recreate the plots in #1 through #7 above, and optionally add additional charts if there are other questions you want to explore. *Be sure to summarize and interpret your findings below each plot.*
