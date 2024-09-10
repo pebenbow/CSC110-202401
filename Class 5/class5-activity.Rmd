@@ -1,0 +1,99 @@
+---
+title: 'Dplyr In-class activity: Filter, Select and Arrange'
+author: "Pete Benbow"
+date: "Sep 10, 2024"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+```
+
+Read in the Chetty data
+
+```{r}
+chetty <- read_excel("Lab1_Chetty_2014.xlsx", skip=1)
+```
+
+# 1-4
+
+In each of the following exercises, produce a dataframe with the prescribed characteristics. Use the pipe whenever possible! Print the tables below the chunk of code, and optionally, save them as new data frames.
+
+```{r}
+
+#1: CZs in North Carolina
+
+
+#2: CZ's in North Carolina with absolute mobility at least 40 
+
+
+#3: CZ's in any state other than North Carolina, with absolute mobility at least 40
+
+
+#4: CZ's that are in North Carolina or have absolute mobility less than 40
+
+
+```
+
+# 5-8
+
+Repeat 1-4 above, sorting the CZ's in decreasing order of absolute mobility, and keeping just the CZ name, state, and absolute mobility variables in the resulting data frames. Use the pipe!
+
+```{r}
+#5: CZs in North Carolina
+
+
+#6: CZ's in North Carolina with absolute mobility at least 40 
+
+
+#7: CZ's in any state other than North Carolina, with absolute mobility at least 40
+
+
+#8: CZ's that are in North Carolina or have absolute mobility less than 40
+
+
+```
+
+#9 Produce a dataframe containing CZ's in the South, Midwest, and Northeast regions. ([See R4DS 3.2.1](https://r4ds.hadley.nz/data-transform.html#filter))
+
+```{r}
+#hint: use %in%
+
+```
+
+#10 How do you find missing data?
+
+```{r}
+# Remember when we plotted social capital vs. absolute mobility, we got a warning that 48 points were removed? Run this line again to see the warning: 
+ggplot(data=chetty, mapping=aes(x=social_capital, y=abs_mobility)) +
+  geom_point()
+
+# Use the filter() and is.na() functions to print rows with missing values for absolute mobility
+
+
+# Use the filter() and is.na() functions to print rows with missing values for social_capital
+
+
+# There were 32 rows missing abs_mobility and 19 rows missing social_capital. How many are missing one or the other, or possibly both?
+
+```
+
+#11 Piping into ggplot! This is where things get exciting, because we can plot exactly what we want from our data frame by piping filtered data into ggplot. In these examples, start with the full chetty data frame rather than using already filtered data frames
+
+```{r}
+# Reproduce the scatter plot above, but get rid of the warning by filtering out the missing data first. Notice we no longer put data=chetty in the ggplot function, as we are sending the data in through the pipe:
+
+
+# Plot social capital vs. absolute mobility for CZs in North Carolina
+
+
+# Plot social capital vs. absolute mobility for urban CZs 
+
+
+# Explore whether there is some Simpson's paradox going on here by fitting a line to each region separately
+
+```
