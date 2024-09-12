@@ -1,0 +1,83 @@
+---
+title: 'Dplyr: Mutate'
+author: "Pete Benbow"
+date: "Sep 12, 2024"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+```
+
+# Class 6 activity
+
+Read in the Chetty data and reduce the number of variables so easier to see the new ones
+```{r}
+chetty <- read_excel("Lab1_Chetty_2014.xlsx", skip=1)
+
+chty <- chetty %>%
+  select(
+    cz_name, 
+    state, 
+    pop_2000, 
+    abs_mobility, 
+    prob_q1q5,
+    starts_with("frac"),
+    hhi_percap,
+    urban, 
+    region
+    )
+```
+
+## Mutate: Adding new variables
+1. Make new variables for each of these quantities:
+* the number of people in each CZ who consider themselves to be religious
+* the log base 2 of the per capita household income
+* the proportion of people who are not Black/African American
+```{r}
+#1
+chty %>%
+  mutate(
+    #rel_pop    = 
+    #log2income = 
+    #not_black  = 
+    ) %>%
+  select(
+    
+    )
+
+#2 Overwrite the original chty data frame with a new one that contains the new variables
+
+
+```
+
+## Rank, sum, average, ntile  
+2. Make new variables that indicate which percentile and which quintile the per capita household income is in among all CZs.
+3. Create a new logical variable that indicates whether a CZ is in the top 50
+4. Make a data frame containing the 41st to 50th worst absolute mobility scores, among the 50 biggest CZs, sorted in that order, and displaying the rank, CZ name, and absolute mobility only (i.e., like the last table in the Chetty non-technical summary)
+5. Add a variable to the data frame you made in #4 that tracks the running total of people in these bottom 10 of the 50 largest CZs. 
+
+```{r}
+#2
+chty %>%
+  mutate(
+    #ptile_hhipercap = 
+    #qtile_hhipercap = 
+    ) %>%
+  select(
+    
+    )
+
+#3
+
+
+#4
+
+
+#5
+
+
+```
+
