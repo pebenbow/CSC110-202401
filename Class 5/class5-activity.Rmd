@@ -62,11 +62,7 @@ Repeat 1-4 above, sorting the CZ's in decreasing order of absolute mobility, and
 
 ```{r}
 #hint: use %in%
-chetty %>%
-  filter(region %in% c("South", "Midwest", "Northeast"))
 
-chetty %>%
- filter(!region %in% c("South", "Midwest", "Northeast"))
 ```
 
 #10 How do you find missing data?
