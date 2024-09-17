@@ -1,0 +1,78 @@
+---
+title: "CSC 110 - Fall 2024 - Quiz 1"
+author: "Your name here"
+date: "The date here"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+```
+
+## Instructions
+
+-   You must work alone on this quiz. You may ask me a clarifying question by email or in office hours, but otherwise you are not to seek outside help on this assignment.
+-   You may use all resources from the class, including the textbook, readings, videos, in-class activities and notes.
+-   You may also look for help on functions inside of R Studio.
+-   You may NOT use any other resources.
+-   Code answers go in the R chunks. Written reflections can be typed directly above each R chunk.
+-   Knit your code to PDF and upload the PDF to Gradescope. Please be sure to indicate which page each problem number is on.
+-   Remember to review your submission carefully. Make sure all of the chunks have run successfully and you have generated the necessary plots.
+
+## Questions
+
+1.  
+
+    1.  Write an R statement that reads in the data frame contained in utip_plus.xlsx
+    2.  How many rows are in this data frame? What does each row represent?
+
+    ```{r}
+
+    ```
+
+2.  
+
+    1.  Make a scatterplot that shows the relationship between tract-to-tract income inequality (tract_gini) and household-to-household income inequality (hh_gini), with each point marked by a filled blue square.
+    2.  What does each point represent in the plot?
+
+    ```{r}
+
+    ```
+
+3.  
+
+    1.  Make a scatterplot that shows the relationship between household-to-household income inequality (hh_gini) and absolute mobility (avg_mob).
+    2.  Do you see any trends? If so, describe them. Are these relationships what you might have expected based on the Chetty study?\
+
+    ```{r}
+
+    ```
+
+4.  
+
+    1.  Explore the potential effects of Simpson's paradox in the relationship shown in #3 by adding aesthetics and/or faceting on the variables inctax and region.
+    2.  Describe your findings below the code.
+
+    ```{r}
+
+    ```
+
+5.  
+
+    1.  Visualize the number of states in each region and in each income tax category with a bar graph.
+    2.  Explain your choice of the x and fill aesthetics, and your choice of position.
+
+    ```{r}
+
+    ```
+
+## Honor Code Pledge
+
+On my honor I have neither given nor received unauthorized information regarding this work, I have followed and will continue to observe all regulations regarding it, and I am unaware of any violation of the Honor Code by others.
+
+(Type your full name below to pledge this assignment.)
+
+```         
+```

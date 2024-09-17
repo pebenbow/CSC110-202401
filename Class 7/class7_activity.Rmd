@@ -1,0 +1,61 @@
+---
+title: 'Class 7: Histograms and case_when'
+author: "Pete Benbow"
+date: "Sep 17, 2024"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+```
+
+```{r warning = FALSE}
+# Now we get real with Chetty, starting with the downloaded file
+
+typ = append(c("numeric", "text", "text"), rep(c("numeric"),38))
+
+chetty <- read_excel("Chetty_Intergenerational Mobility_tables.xls", sheet="Online Data Table 8", skip=6, col_types=typ) %>%
+  filter(CZ>0)
+
+# Note that mobility measures are in a different sheet!
+```
+
+
+## Making summary tables with count()
+
+1. Use the count function to display the number of urban and non-urban CZs
+```{r}
+# Hint: use glimpse in the console to print out new, non-standard variable names
+
+```
+
+## Histograms of continuous variable(s)
+
+2. Explore the variation in `School Expenditure per Student` with histograms. What is a good number of bins, or binwidth? Is there any surprising structure to these data? Are there any outliers? What are the non-finite values?  
+```{r}
+#2a Experimenting with bins
+
+
+#2b Experimenting with binwidth
+
+```
+
+3. On your own or with a partner, repeat #2 with `Teacher Student Ratio` and `High School Dropout Rate (Income Adjusted)`
+```{r}
+#3a Teacher Student Ratio
+
+
+#3b High School Dropout Rate (Income Adjusted)
+
+
+```
+
+
+4. Use mutate() and case_when() to make a new categorical variable with 3 or 4 different values for the level of school expenditures. Note that this would allow you to use different colors or facets in a scatter plot or bar graph for the level of school expenditure (try it if you have time!)
+```{r}
+
+```
+
+
