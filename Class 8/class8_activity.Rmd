@@ -1,0 +1,80 @@
+---
+title: 'Class 8: Box plots and labels'
+author: "Pete Benbow"
+date: "Sep 19, 2024"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+```
+
+
+## Background
+The provided data on early care and education were painstakingly collected by Scott Latham and collaborators at the Stanford Center for Educational Policy Analysis, in support of a recent publication available here: https://cepa.stanford.edu/content/effects-accountability-incentives-early-childhood-education 
+
+You can read more about the QIRS system here: 
+https://ecquality.acf.hhs.gov/about-qris
+
+Instead of an online code book like we had for the CMS data, we have a note from Professor Latham:
+"We have a panel of all licensed child care providers in NC from 2007-2014. This includes center based providers and family child care homes. For all providers, we have county identifiers and zip codes. We also know facility types (e.g. independent, Head Start, local public school), enrollment, capacity, and some zip code level demographics (% below pov, % black, % Hispanic). For most providers, we have information about quality as measured by NC’s Quality Rating and Improvement System (QRIS), but most of these indicators aren’t readily interpretable, because they are linked to the QRIS rubric (e.g. we have a measure of teacher/staff education & credentials that goes from 1-7). The one measure of quality that is fairly straightforward to interpret are ERS ratings (widely-used measure of observed classroom quality). These are elective, so we only have for a subset of the providers."
+
+## Read and filter the data to get just Mecklenburg County
+```{r}
+#1 Create a dataframe named "nc" that contains the Excel file
+nc <- read_excel("NC_ECE_2007-2014.xls")
+
+#2 Use pipes to create a dataframe named "meck" that contains only the data for Mecklenburg County
+(meck <- nc %>%
+  filter(county == "Mecklenburg"))
+```
+
+
+## First a little data exploration...
+
+Produce a summary table of the minimum and maximum values of percent in poverty, percent black, percent Hispanic, and median income for each zip code in Mecklenburg in 2014. 
+
+```{r}
+# Use filter, group_by, summarize, min, and max
+# You may also want to use !is.na to filter out bad values
+
+
+```
+
+## Covariation between a categorical and continuous variable
+
+Now let's use geom_boxplot to investigate the distribution of capacity by facility type in Mecklenburg county in 2014. 
+
+```{r}
+# Hint: Filtering on year is essential, since each facility is in the dataset multiple times, once for each year
+# Another hint: screen for N/A values
+
+
+```
+
+
+## Covariation between two categorical variables 
+
+Let's say we wanted to see the count of QRIS ratings (which are categorical) at each facility type in 2014 in NC. How could you graph this?
+
+```{r}
+
+```  
+  
+
+## Covariation between two continuous variables 
+- Boxplots are not suitable for comparing two continuous variables. 
+- Visualize the relationships between QRIS variable(s), the type of facility, and the demographics of that zip code in 2014. There are many possible combinations of variables to consider here. Experiment with a few different ones. Interpret your graphs and discuss any conclusions you can draw. 
+
+```{r}
+#e.g., QRIS points vs. percent poverty, by independent status
+# NOTE the use of if_else here to create a new variable for independent or not
+
+nc14 <- 
+  filter(nc, year == 2014) %>%
+  mutate(ftype_indep = if_else(ftype=="Independent", "Independent", "Other"))
+
+
+```
