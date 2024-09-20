@@ -1,0 +1,167 @@
+---
+title: "CSC 110 - Fall 2024 - Lab 2"
+author: "Anonymous"
+date: ""
+output: word_document
+---
+# CSC110: Data Science & Society Lab 2
+
+Welcome to CSC 110 Lab 2!  In this lab, you will work with data on schools from the Common Core of Data (CCD), collected by the National Center for Education Statistics. The data is pre-filtered on schools in the Charlotte-Mecklenburg Schools system (CMS). You can read more about the CCD and and find documentation on this datafile here: https://nces.ed.gov/ccd/pubschuniv.asp. 
+
+We are working with the 2013-14 dataset, for consistency with the LOTF report. The lab folder includes a data definitions file for the CCD, which will explain what each column represents in the Excel file.
+
+### INSTRUCTIONS
+
+To complete this lab, answer each question with code, and label each part of the question with a comment (as shown below). Type non-code responses (e.g., discussion and interpretations) below the relevant code chunk. For full credit, do all steps with R code (no hidden human interaction), and use piping whenever possible. 
+
+Be sure to use labels for your chart axes and legends, and format your code using the guidelines from the R4DS reading (https://r4ds.hadley.nz/workflow-style). Do not put your names in this file or in the filename, so we can grade anonymously.
+
+Knit your code to pdf (or to Word and then print to pdf) and upload your pdf to Gradescope. Submit one solution per lab team. Please be sure to indicate which page each problem number is on. 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# load libraries
+library(tidyverse)
+library(readxl)
+
+# load data from Excel
+ccd_cms_1314 <- read_excel("ccd_cms_1314.xlsx")
+```
+
+# Part I: Getting to know CMS and the CCD
+## Question 1 
+
+a. Make a new variable sch_type that has the value "Charter", "Magnet" or "TPS", to specify if the school is a charter, magnet or traditional public school.
+b. How many schools of each of these three types are in Charlotte-Meck? 
+c. Make a table that shows the number of schools of each of the three school types that are missing data for free lunch.
+
+```{r}
+#a
+
+#b 
+
+#c
+
+```
+
+## Question 2
+
+a. How many schools are elementary schools?  Middle schools? High schools? Other? Missing? 
+b. How many schools are eligible for Title I status? Summarize the count of schools in each category.
+
+```{r}
+#a
+
+#b 
+
+```
+
+## Question 3
+
+a. Use R commands to report the five largest schools and five smallest schools in CMS.
+b. Now, create a new variable to rank schools in order of size from largest to smallest.
+c. Where does Davidson Elementary rank in terms of size?  North Mecklenburg High? 
+d. How many students are at each of these two schools?
+
+```{r}
+#a
+
+#b 
+
+#c
+
+#d
+
+```
+
+## Question 4
+a. Create new variables that compute the percentage of students who are Black, White, Hispanic, Asian or another race (call this variable "other"), and the percentage of students receiving free OR reduced price lunch.
+b. Visualize these data to see the variability of each of these variables.
+
+```{r}
+#a
+
+#b 
+
+```
+
+# Part II: Comparing CCD Data to the Leading on Opportunity Task Force Report
+
+## Question 1
+a. How many schools are high-poverty (80% or more students receiving FRL) and high-minority (80% non-white), as reported in the LOTF report (Chapter 2)? 
+
+b. Why did you not get an exact match? Think about how this population of schools might be different from the population in LOTF, and attempt to identify the correct population (hint: examine the chartr variable)
+
+```{r}
+#a
+
+```
+
+## Question 2 
+Create a new dataframe consisting of only schools in CMS. How does this population differ from the population in LOTF? Note that this difference will impact your estimates to the below slightly; you should not expect perfect matches.
+
+```{r}
+
+```
+
+## Question 3 
+Investigate the following claims in the LOTF report. Where the authors are not specific, experiment with different thresholds for the definition of "segregated":
+
+a. "a third of the 168 schools in the system are segregated by poverty"
+
+b. "half are segregated by race"
+
+c. "a fifth are hypersegregated, meaning that 90% of their students are of a particular race"
+
+d. "over half of all African-American students attend schools that are 90 percent non-white"
+
+e. "the majority of white students attend majority-white schools in our high-growth southern and northern suburbs"  (Note: you will not be able to investigate location, only whether the majority of white students attend majority white schools).
+
+```{r}
+#a
+
+#b
+
+#c
+
+#d
+
+#e
+
+```
+
+## Question 4. 
+How close does your analysis come to LOTF? What advice might you give to the authors of LOTF for the next report they write (to be helpful to researchers replicating their results)?
+
+
+
+# Part III.  Visualizing relationships with co-variation
+
+## Question 1 
+Visualize the variation in the percent of students receiving FRL for magnet schools, TPS and charter schools.
+```{r}
+
+
+```
+
+## Question 2 
+Visualize the variation in the percent of students of each race and ethnicity in the data file (Black, White, Hispanic, Asian and Other) for each of the type of schools (magnet, TPS and charter).
+```{r}
+
+```
+
+## Question 3 
+a. Visualize the relationship between the percent of students of color and the percent who receive free or reduced price lunch, by school type. Experiment with a couple of different ways to visualize this relationship, using geom_point and one of the geoms from Chapter 7 of R4DS. 
+b. Describe your findings.
+```{r}
+#a
+
+```
+
+
+# Honor Code Pledge
+
+To pledge this assignment, simply write "Pledged" below. Do not put your names!
+
+
