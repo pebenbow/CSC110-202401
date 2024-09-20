@@ -8,6 +8,8 @@ output: word_document
 
 Welcome to CSC 110 Lab 2!  In this lab, you will work with data on schools from the Common Core of Data (CCD), collected by the National Center for Education Statistics. The data is pre-filtered on schools in the Charlotte-Mecklenburg Schools system (CMS). You can read more about the CCD and and find documentation on this datafile here: https://nces.ed.gov/ccd/pubschuniv.asp. 
 
+Before beginning this lab, read Chapter 2 (pages 12-17) of the LOTF report: https://www.leadingonopportunity.org/wp-content/uploads/2022/10/LeadingOnOpportunity_Report-Compressed.pdf
+
 We are working with the 2013-14 dataset, for consistency with the LOTF report. The lab folder includes a data definitions file for the CCD, which will explain what each column represents in the Excel file.
 
 ### INSTRUCTIONS
