@@ -154,7 +154,7 @@ Visualize the variation in the percent of students of each race and ethnicity in
 ```
 
 ## Question 3 
-a. Visualize the relationship between the percent of students of color and the percent who receive free or reduced price lunch, by school type. Experiment with a couple of different ways to visualize this relationship, using geom_point and one of the geoms from Chapter 7 of R4DS. 
+a. Visualize the relationship between the percent of students of color and the percent who receive free or reduced price lunch, by school type. 
 b. Describe your findings.
 ```{r}
 #a
