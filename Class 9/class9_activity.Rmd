@@ -1,0 +1,48 @@
+---
+title: "CSC 110 - Class 9 - Data types, interrogatives, and conversions"
+author: "Pete Benbow"
+date: "2024-09-24"
+output: html_document
+---
+
+## Setup
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readr)
+```
+
+## Part 1: Playing around with data types
+
+```{r}
+# Use the data.frame() function and the c() function to build a new dataframe named "df" that contains some dummy data
+
+
+# Use the str() function to interrogate your new dataframe and determine its data types
+
+
+# Build a new dataframe named "df_clean" that uses data conversion functions to force our data from df into new data types
+
+
+# Interrogate df_clean with str() to see the final result
+
+
+```
+
+## Part 2: Messy COVID data from GitHub
+
+```{r}
+# Read in the COVID data from GitHub
+covid <- read_csv("https://raw.githubusercontent.com/d4bl/COVID19_tracker_data_extraction/refs/heads/master/workflow/python/output/latest-combined-output.csv")
+
+# Interrogate our COVID data frame... what do we see that is unusual?
+
+
+# Let's use mutate() and our data conversion functions to clean and convert the data, then interrogate it
+
+
+# Interrogate with str() to see the final result
+
+```
+
