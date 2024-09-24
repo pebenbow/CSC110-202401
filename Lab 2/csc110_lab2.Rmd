@@ -8,6 +8,8 @@ output: word_document
 
 Welcome to CSC 110 Lab 2!  In this lab, you will work with data on schools from the Common Core of Data (CCD), collected by the National Center for Education Statistics. The data is pre-filtered on schools in the Charlotte-Mecklenburg Schools system (CMS). You can read more about the CCD and and find documentation on this datafile here: https://nces.ed.gov/ccd/pubschuniv.asp. 
 
+Before beginning this lab, read Chapter 2 (pages 12-17) of the LOTF report: https://www.leadingonopportunity.org/wp-content/uploads/2022/10/LeadingOnOpportunity_Report-Compressed.pdf
+
 We are working with the 2013-14 dataset, for consistency with the LOTF report. The lab folder includes a data definitions file for the CCD, which will explain what each column represents in the Excel file.
 
 ### INSTRUCTIONS
@@ -152,7 +154,7 @@ Visualize the variation in the percent of students of each race and ethnicity in
 ```
 
 ## Question 3 
-a. Visualize the relationship between the percent of students of color and the percent who receive free or reduced price lunch, by school type. Experiment with a couple of different ways to visualize this relationship, using geom_point and one of the geoms from Chapter 7 of R4DS. 
+a. Visualize the relationship between the percent of students of color and the percent who receive free or reduced price lunch, by school type. 
 b. Describe your findings.
 ```{r}
 #a
