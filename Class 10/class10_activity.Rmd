@@ -1,0 +1,105 @@
+---
+title: "Class 10: Strings and Dates"
+author: "Pete Benbow"
+date: "Sep 26, 2024"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(lubridate)
+library(RColorBrewer)
+```
+
+## Dealing with messy dates using ymd()
+
+```{r}
+# Follow along with me here as we create a new vector with some dummy data and demonstrate how to use the ymd() function
+
+
+# Turn our vector into a data frame
+
+
+# Use a little mutate() + ymd() to convert the data and display our results side-by-side
+
+
+```
+
+## Data for Black Lives project: COVID-19 
+
+```{r}
+# Read the Data for Black Lives combined update dataset
+d4bl <- read_csv("https://raw.githubusercontent.com/d4bl/COVID19_tracker_data_extraction/refs/heads/master/workflow/python/output/latest-combined-output.csv",
+                 col_types = cols(
+                   `Count Cases Black/AA`  = col_number(),
+                   `Count Deaths Black/AA` = col_number(),
+                   `Date Published`        = col_datetime()
+                 ))
+
+# Look at the structure of our dataframe using str()
+str(d4bl)
+
+# View and (partially) fix parsing problems -- Do this in the console, b/c remember that View() can break the knitr package
+#View(problems(d4bl))
+
+# Overwrite the Date Published column with properly formatted dates
+
+
+# Use dplyr to verify all our dates are now valid
+
+
+```
+
+## Filtering with dates
+
+```{r}
+# Create a new dataframe named "d4bl_1015" that contains only rows where `Date Run` was on October 15, 2020
+
+
+# Create a new dataframe named "d4bl_latest" that retrieves the latest update from each Location
+
+
+```
+
+## Messy string data
+
+```{r}
+# Get distinct locations to identify the problem
+(Locations <- d4bl %>%
+  distinct(Location) %>%
+  arrange(Location))
+
+# Use str_replace() to fix one typo
+
+
+# Review the results of both Location and LocationNew
+
+
+# Use str_replace() to fix multiple typos
+
+
+# Get distinct locations again to review results of both Location and LocationNew
+
+  
+# A more streamlined way to do this using only one mutate() function
+
+  
+# Get distinct locations again to see the results
+
+
+# Now overwrite the original location column
+
+
+# Get distinct locations one last time to verify the results
+
+
+```
+
+## Filter for substring (str_detect)
+
+```{r}
+# Filter to get all rows with errors in status using str_detect()
+
+```
+
