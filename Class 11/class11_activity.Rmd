@@ -1,0 +1,108 @@
+---
+title: "Class 11: Tibbles, Tribbles, and Tidy Data - Oh my!"
+author: "Pete Benbow"
+date: "Oct 1, 2024"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages("tidyverse")
+library(tidyverse)
+```
+
+## A tibble called south
+
+```{r}
+# Build a tibble called "south"
+(south <- tibble(
+  state = c("NC", "SC", "GA", "TN"),
+  pct_black = c(.2, .3, .4, .25),
+  pct_hisp = c(.1, .2, .2, .15),
+  pct_asian = c(.1, .2, .1, .1),
+  pct_white = c(.6, .3, .3, .5)
+))
+
+# Note the grain of the data!
+```
+
+Thought question: Is this a tidy tibble? What kind of plot might you want to make with these data? Could you do it without first modifying the data frame?
+
+## Tidying tibbles
+
+Tidy your south tibble. [Read the documentation](https://tidyr.tidyverse.org/reference/pivot_longer.html) and try to find three different ways to select the variables to pivot:
+
+```{r}
+# 1
+
+# 2
+
+# 3
+
+```
+
+## Tidying column names
+
+Now let's clean up column names. See if you can find two different ways to remove "pct\_" from the resulting variable values. [Read the documentation](<https://tidyr.tidyverse.org/reference/pivot_longer.html>) to find some alternatives.
+
+```{r}
+# 1 
+
+# 2
+
+```
+
+## Plotting the output after pivoting or unpivoting:
+
+```{r}
+# Make a bar graph showing demographic breakdown by state
+
+  
+```
+
+## Tidy us_rent_income
+
+```{r}
+# Preview the US rent data and note the grain
+us_rent_income
+
+# Pivot the data using pivot_wider() to get one row per US state
+# HINT: you may need to use the c() function for one of the pivot arguments
+
+```
+
+## Tidy relig_income
+
+Find three different ways to employ pivot_longer() to tidy this data
+
+```{r}
+# Preview the relig_income data and note the grain
+relig_income
+
+# 1
+
+# 2
+
+# 3
+
+```
+
+## Introducing tribble()
+
+```{r}
+# Construct south again, using tibble()
+(south <- tibble(
+  state = c("NC", "SC", "GA", "TN"),
+  pct_black = c(.2, .3, .4, .25),
+  pct_hisp = c(.1, .2, .2, .15),
+  pct_asian = c(.1, .2, .1, .1),
+  pct_white = c(.6, .3, .3, .5)
+  )
+)
+
+# Construct south again, using tribble()
+
+
+# What differences do you notice between tibble() and tribble()? The output is the same, but do you see advantages to one method versus the other?
+  
+```

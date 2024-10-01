@@ -1,0 +1,144 @@
+---
+title: 'CSC 110: Quiz 2'
+author: "Anonymous"
+date: "Oct 1, 2024"
+output:
+  word_document: default
+  html_document:
+    df_print: paged
+---
+
+## Instructions
+
+-   You must work alone on this quiz. You may ask me a clarifying question by DM, but you may not get help from anyone.
+-   You may use all resources from the class, including the textbook, readings, videos, in-class activities and notes
+-   You may also look for help on functions inside of R Studio
+-   **Collaboration with other students is not allowed**
+-   Put answers to your written (non-code) questions in the boxes provided below each code chunk.
+-   Knit your code to pdf (or to Word and then print to pdf) and upload your pdf to Moodle.
+-   Be sure to *LABEL* all your axes and legends
+
+The data for this quiz are the same that we used for the Class 8 in-class activity.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(tidyverse)
+library(readxl)
+
+```
+
+## Read in the data
+
+```{r echo=TRUE}
+nc <- read_excel("NC_ECE_2007-2014.xls")
+```
+
+Questions begin on next page
+
+\newpage
+
+1.  
+    a.  Make a new data frame called nc14 that contains all NC facilities in the year 2014, with the variables fname, zip, ftype, p_pov, med_income, QRIS_ERS, and a new variable p_cap = enroll/capacity. You will use this data frame in the remaining questions.
+
+```{r echo=TRUE}
+#1(a) Create new data frame
+
+
+```
+
+\newpage
+
+2.  
+
+    a.  Make a new data frame that shows the number of facilities evaluated in each zip code in 2014, and the value of p_pov for each zipcode. Sort by the number of facilities in decreasing order. **Be sure this new data frame shows in the output.**
+
+    b.  Make a plot from the data frame you made in part (a) that demonstrates variation in percent poverty across zip codes in NC
+
+    c.  In 2-3 sentences, explain why your plot in (b) is different from a plot that demonstrates variation in p_pov in the original nc14 data frame
+
+```{r echo=TRUE}
+#2(a). Create new data frame
+
+
+#2(b). Make a plot
+
+
+```
+
++-------------------------+
+| Written answer to 2(c): |
++-------------------------+
+
+\newpage
+
+3.  
+
+    a.  Add a new variable to nc14 that lumps together various facility types into five groups, based on the value of ftype, as follows:
+        -   Independent
+        -   Franchise
+        -   Religious sponsored
+        -   Federal, Head Start or Local public school
+        -   All others Show the data with this new column.
+    b.  Make a plot to show the variation in p_cap across these five groups.
+    c.  In 2-3 sentences, describe the plot you just created and what it indicates about your p_cap variable across these different groups.
+
+```{r echo=TRUE}
+#3(a). Add a new variable 
+
+
+#3(b). Make a plot
+
+
+```
+
++-------------------------+
+| Written answer to 3(c): |
++-------------------------+
+
+\newpage
+
+4.  
+    a.  Make a boxplot to visualize covariation between QRIS_ERS and med_income, binning med_income to treat it as a categorical variable, and representing the number of observations in each category by the width of the corresponding box.
+    b.  In 2-3 sentences, describe the visualization you just created and what it communicates about possible covariation between these two variables.
+
+```{r echo=TRUE}
+#4 Boxplot
+
+
+```
+
++-------------------------+
+| Written answer to 4(b): |
++-------------------------+
+
+\newpage
+
+5.  
+
+    a.  Visualize the relationship between med_income and QRIS_ERS using a scatter plot.
+    b.  Visualize the same relationship using geom_bin2d.
+    c.  In 2-3 sentences, discuss the pros and cons of each of these visualizations.
+
+```{r echo=TRUE}
+#5(a). Visualize
+
+
+#5(b). Visualize some more
+
+
+```
+
++-------------------------+
+| Written answer to 5(c): |
++-------------------------+
+
+\newpage
+
+## Honor Code Pledge
+
+On my honor I have neither given nor received unauthorized information regarding this work, I have followed and will continue to observe all regulations regarding it, and I am unaware of any violation of the Honor Code by others.
+
++-----------------------------------------------------------+
+| Type your full name in this box to pledge the assignment: |
++-----------------------------------------------------------+
