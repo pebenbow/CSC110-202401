@@ -39,6 +39,7 @@ Questions begin on next page
 \newpage
 
 1.  
+
     a.  Make a new data frame called nc14 that contains all NC facilities in the year 2014, with the variables fname, zip, ftype, p_pov, med_income, QRIS_ERS, and a new variable p_cap = enroll/capacity. You will use this data frame in the remaining questions.
 
 ```{r echo=TRUE}
@@ -66,9 +67,9 @@ Questions begin on next page
 
 ```
 
-+-------------------------+
+|                         |
+|-------------------------|
 | Written answer to 2(c): |
-+-------------------------+
 
 \newpage
 
@@ -92,13 +93,14 @@ Questions begin on next page
 
 ```
 
-+-------------------------+
+|                         |
+|-------------------------|
 | Written answer to 3(c): |
-+-------------------------+
 
 \newpage
 
 4.  
+
     a.  Make a boxplot to visualize covariation between QRIS_ERS and med_income, binning med_income to treat it as a categorical variable, and representing the number of observations in each category by the width of the corresponding box.
     b.  In 2-3 sentences, describe the visualization you just created and what it communicates about possible covariation between these two variables.
 
@@ -108,9 +110,9 @@ Questions begin on next page
 
 ```
 
-+-------------------------+
+|                         |
+|-------------------------|
 | Written answer to 4(b): |
-+-------------------------+
 
 \newpage
 
@@ -129,9 +131,9 @@ Questions begin on next page
 
 ```
 
-+-------------------------+
+|                         |
+|-------------------------|
 | Written answer to 5(c): |
-+-------------------------+
 
 \newpage
 
@@ -139,6 +141,6 @@ Questions begin on next page
 
 On my honor I have neither given nor received unauthorized information regarding this work, I have followed and will continue to observe all regulations regarding it, and I am unaware of any violation of the Honor Code by others.
 
-+-----------------------------------------------------------+
+|                                                           |
+|-----------------------------------------------------------|
 | Type your full name in this box to pledge the assignment: |
-+-----------------------------------------------------------+
