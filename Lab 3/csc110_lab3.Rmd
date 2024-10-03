@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Background
 
-In this lab, you will work with data from the Quality of Life Explorer created by the UNCC Urban Institute in collaboration with the city of Charlotte, Mecklenburg County, and nearby townships. The data file *qol_lab3.xls* is provided for you. This dataset describes how various aspects of Charlotte residents' "quality of life" varies according to neighborhood. You can explore and [learn more about this project here] <http://charlottenc.gov/HNS/CE/CommunityInfo/Pages/QOL.aspx>.
+In this lab, you will work with data from the Quality of Life Explorer created by the UNCC Urban Institute in collaboration with the city of Charlotte, Mecklenburg County, and nearby townships. The data file *qol_lab3.xls* is provided for you. This dataset describes how various aspects of Charlotte residents' "quality of life" varies according to neighborhood. You can explore and [learn more about this project here] <https://ui.charlotte.edu/our-work/quality-life-explorer/>.
 
 # Instructions
 
