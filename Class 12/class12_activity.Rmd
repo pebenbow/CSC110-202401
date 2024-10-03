@@ -1,0 +1,73 @@
+---
+title: 'Tidy data, continued'
+author: "Pete Benbow"
+date: "Oct 3, 2024"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(readxl)
+```
+
+## Lab 2, revisited
+
+When you visualized variation in percentage of each race/ethnicity, you were stuck making separate variables and separate visualizations, because there was not a single race variable. 
+
+Thanks to pivot_longer(), we can do better!
+
+Start from the original data in the file, and pivot the table longer to create a race/ethnicity variable BEFORE you compute any percentages. Capture all seven race/ethnicity categories. Then, calculate the percentage that each race/ethnicity composes of the overall student body at each school. Work sequentially and logically using your dplyr verbs!
+
+```{r echo=TRUE}
+cms <- read_excel("ccd_cms_1314.xlsx")
+
+cms_pivot <- cms %>%
+  filter(leanm == "CHARLOTTE-MECKLENBURG SCHOOLS") %>%
+  # Step 1: Classify schools by magnet, charter, or TPS
+  mutate(
+    sch_type = case_when(
+      magnet == 1 ~ "Magnet",
+      chartr == 1 ~ "Charter",
+      TRUE ~ "TPS"
+    )
+  ) %>%
+
+  
+```
+
+Now make a box plot that shows variation in all of the races/ethnicities in one plot.
+
+```{r echo=TRUE}
+# Boxplot 1
+
+# Boxplot 2
+  
+
+```
+
+What conclusions can you draw about racial/ethnic composition of Charlotte-Mecklenburg schools from this boxplot? What important characteristics of the composition can you NOT see in this plot?
+
+\newpage
+
+## Early Childhood, revisited
+
+In our Class 8 in-class activity you worked with some hand-collected early childhood data that gives the age range of children in each facility. 
+
+4. Tidy the data and build a summary table, by county, of how many facilities serve children younger than 3, and how many serve children older than 15, in 2014.
+
+```{r}
+
+ece <- read_excel("NC_ECE_2007-2014.xls")
+
+```
+
+## Handling missing data 
+
+5. Load the tibble example_migration from the provided RDS file (from the package dcldata, at https://github.com/dcl-docs/dcldata), and tidy it to show the number that migrated from each origin to each destination. Explain the value of this reorganization, and your approach to missing data in this data frame.  
+
+```{r}
+
+```
+
