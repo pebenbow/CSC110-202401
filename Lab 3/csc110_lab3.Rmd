@@ -156,7 +156,7 @@ The LOTF report states, "when women and their partners in our community do decid
 
 # Part II. Conducting your own Exploratory Data Analysis
 
-In the second half of the lab, you will conduct your own exploratory data analysis (EDA) inspired by an open question or unjustified claim in the LOTF report. Your EDA will be graded on your choice of an appropriate research question, the clarity of your visualizations, and how well your visualizations allow you to recognize patterns in your data and provide insight into the question you have posed. This is similar to what you will need to do for your final project.
+In the second half of the lab, you will use the QOL data to conduct your own exploratory data analysis (EDA) inspired by an open question in the LOTF report. Your EDA will be graded on your choice of an appropriate research question, the clarity of your visualizations, and how well your visualizations allow you to recognize patterns in your data and provide insight into the question you have posed. This is similar to what you will need to do for your final project.
 
 In this section, you should pose and answer at minimum four iterative, related EDA questions, using a minimum of 3 different variables (as in Questions 2 through 5 in Part I). Write as though you are guiding future students through an exploration of the data, along with an answer key where you provide your code and written analysis. Your reader should be able to follow how your research progresses as you pose your overarching question, then prep and visualize the data, draw your first conclusion based on your work, and then use that to narrow or adjust your focus as you progress to the next question, and the one that follows, and so forth.
 
@@ -168,16 +168,74 @@ For guidance on drafting a research question, [read R4DS 10.1 thru 10.2](https:/
 
 \newpage
 
+## Main research question
+
+LOTF claims that access to education and career readiness services improve economic stability. Is there data to prove that educational success yields economic success? What other factors may be influencing measures such as employment? This part of the lab will investigate the relationship between education and employment, with consideration of other factors that may impact this relationship.
+
 ## Research question #1
 
-Type your research question here
+Type your question here
 
 ```{r echo=TRUE}
 
 
 ```
 
+Summarize your findings:
+
+|     |
+|-----|
+|     |
+
 \newpage
+
+## Research question #2
+
+Type your question here
+
+```{r echo=TRUE}
+
+```
+
+Summarize your findings:
+
+|     |
+|-----|
+|     |
+
+: \newpage
+
+## Research question #3
+
+Type your question here
+
+```{r echo=TRUE}
+
+```
+
+Summarize your findings:
+
+|     |
+|-----|
+|     |
+
+: \newpage
+
+## Research question #4
+
+Type your question here
+
+```{r echo=TRUE}
+
+```
+
+Summarize your findings:
+
+|     |
+|-----|
+|     |
+
+: \newpage
 
 ## Honor Code Pledge
 
