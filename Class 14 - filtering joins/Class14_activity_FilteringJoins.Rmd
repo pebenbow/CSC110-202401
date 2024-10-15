@@ -1,0 +1,121 @@
+---
+title: 'Class 14 Activity: Filtering Joins'
+author: "Pete Benbow"
+date: "Oct 15, 2024"
+output:
+  html_document:
+    df_print: paged
+---
+
+## Setup
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+library(nycflights13)
+```
+
+## Revisiting mutating joins: Part 1
+
+```{r echo=TRUE}
+# Slim down the flights dataset
+flights2 <- flights %>% 
+  select(year, time_hour, origin, dest, tailnum, carrier)
+
+# Inspect the new flights data frame
+
+
+# Inspect the Airlines data frame
+
+
+# Note the column they have in common. This will be used as our join key by default! (natural join - not explicit)
+
+# Now use a simple left join to combine these two data frames, and look at the results.
+flights2 %>%
+
+# Inspect the weather data frame and note the data it provides us, and at what grain
+
+
+# left join to the weather DF and select a few columns: origin, time_hour, temp, and wind_speed:
+flights2 %>%
+
+```
+
+## Revisiting mutating joins: Part 2
+
+```{r echo=-TRUE}
+# Now let's join some more data
+# Inspect the planes data frame and note the grain of the data
+
+
+# Use left join to determine how many engines and seats were on each flight in our flights dataset
+flights2 %>%
+
+# Note the fact that some of our flights are missing data! We have a lot of NA values being returned.
+
+
+```
+
+## Specifying join keys
+In our previous example, we noted that some of our flights are missing data
+
+```{r echo=TRUE}
+# What happens if we do a left join from our flights data frame to the entire planes data frame?
+flights2 %>%
+  
+
+# Now let's specify the join key explicitly:
+flights2 %>%
+
+
+# Another way to use the join_by argument is to specify join keys when the same type of data may be contained in two different columns.
+# For example: origin airports versus destination airports. They both contain airport codes!
+# But the relevant column in our airports data frame is named "faa", so a natural (implicit) join is impossible here.
+# So we need to specify the join keys explicitly:
+flights2 %>%
+
+
+# Now use TWO join functions to bring in airport names for both destinations AND origins
+flights2 %>%
+  
+
+# Now use INNER_join to return only the rows that have a destination in our airports table
+flights2 %>%
+  
+
+```
+
+## Filtering joins
+There are two types of filtering joins: semi-joins and anti-joins.
+NOTE: Unlike mutating joins, filtering joins do not return any columns from the right-hand table. Their best use is as a way to identify the rows in one table that either do (semi-join) or do NOT (anti-join) have a match in the other table.
+
+### Semi-joins
+Semi-joins keep all rows in x that have a match in y.
+
+```{r echo=TRUE}
+# use a semi-join to filter the airports data frame to show just the origin airports
+airports %>% 
+
+# This returns a list of all records in the airports data frame that are contained in the origin column of our flights data frame.
+# This also reinforces something we already knew: that our nycflights13 dataset indeed contains only data about flights originating from airports in the New York metropolitan area.
+
+# In contrast, if we use a semi-join to filter based on destination, we'll get a list of all airports that are listed as destinations in our flights data frame.
+airports %>% 
+
+```
+
+### Anti-joins
+Anti-joins return all rows in x that do NOT have a match in y. This is very useful for trying to identify missing values in a dataset.
+
+```{r echo=TRUE}
+# Find flight destinations that are missing from airports by looking for flights that do not have a matching destination in our airport data frame
+flights2 %>% 
+
+
+
+# Which tailnums appear in our flights data frame that do NOT appear in our planes data frame?
+flights2 %>%
+
+```
+
