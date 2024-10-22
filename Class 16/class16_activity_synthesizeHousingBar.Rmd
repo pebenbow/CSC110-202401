@@ -1,0 +1,93 @@
+---
+title: "Synthesizing activity"
+author: "Pete Benbow"
+date: "2024-10-22"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+
+```
+
+## Review
+
+Go to the Davidson Community Research Fellows (CRF) Community Dashboard here: <https://crf-dashboard.rc.davidson.edu/>
+
+Look at the bar graph under the Housing tab.
+
+-   What can you conclude about affordable housing in Mecklenburg County?
+-   What variables would you need to include in a hypothetical data frame to recreate this bar graph?
+
+## Some new functions to think about using:
+
+-   `n_distinct()`
+-   `str_detect()`
+
+## Setup
+
+Read data frames from the census2019 and ACS_variables_2019 rds files.
+
+```{r}
+census2019 <- readRDS("census2019.rds")
+ACS <- readRDS("ACS_variables_2019.rds")
+
+```
+
+## Part 1
+
+Write code to answer each of the following about census2019:
+
+1.  How many distinct census tracts are represented? Can you find three different ways to answer this question using dplyr?
+
+2.  Make a list of the distinct ACS variables in census2019. How many distinct variables are there in this dataset?
+
+3.  How many ACS variables are recorded for each census tract?
+
+```{r}
+#a How many census tracts are represented?
+
+```
+
+```{r}
+#b Make a list of the unique ACS variables in census2019  
+
+```
+
+```{r}
+#c How many ACS variables are recorded for each census tract?
+
+```
+
+## Part 2
+
+Answer each of the following about the ACS data frame:
+
+1.  How many rows are in this tibble? What does each row represent?
+
+2.  How many distinct ACS variables contain "PERCENTAGE OF HOUSEHOLD INCOME" in their concept?
+
+3.  How many distinct ACS concepts contain "PERCENTAGE OF HOUSEHOLD INCOME" in their name?
+
+4.  Which of these might be relevant for making the bar chart under the Housing tab in the CRF dashboard? 
+
+```{r}
+#2.1 How many rows are in the ACS data frame?
+
+```
+
+```{r}
+#2.2 How many distinct ACS variables contain "PERCENTAGE OF HOUSEHOLD INCOME" in their concept?
+
+```
+
+```{r}
+#2.3 How many distinct ACS concepts contain "PERCENTAGE OF HOUSEHOLD INCOME" in their name?
+
+```
+
+```{r}
+#2.4 Which of these might be relevant for making the bar chart under the Housing tab in the CRF dashboard? 
+
+```

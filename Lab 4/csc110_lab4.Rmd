@@ -1,0 +1,105 @@
+---
+title: 'Lab 4: Tidy and Join'
+author: 'anonymous'
+date: "October 22, 2024"
+output: word_document
+---
+
+## Instructions
+
+-   Read sections 16.2, 16.2, and 16.4 (regarding factors) from the R4DS textbook: [link](https://r4ds.hadley.nz/factors.html).
+-   Leave the author as anonymous
+-   Show your work! Every answer should have code and output.
+-   Make your charts look nice, including appropriate choices for binwidths, bar locations, axis titles, tick locations, labels, etc.
+-   Knit the file to PDF and upload to Gradescope. Assign all of your answers in Gradescope to the pages of your PDF that contain those answers.
+
+```{r setup, include=FALSE}
+
+####### DO NOT CHANGE THE FOLLOWING LINE #######
+# (this should ensure each code chunk is in your knitted pdf file)
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+
+```
+
+\newpage
+
+## Question 1
+
+(1) Using the Economy sheet from the QOL file and tidyverse commands, create a new tidy data frame called "jobs" which contains columns for NPA, year (2002-2015, inclusive), and number of jobs. (You will need to do some pivoting)
+    -   Use code to select variables for pivoting; do not just type them all.
+    -   Use the `as.factor()` function to convert NPA from a numeric variable to a factor.
+(2) Make and display a table of the NPAs with the 10 highest coefficient of variation (standard deviation divided by mean) in the number of jobs, listing the NPA number and the coefficient of variation. Standard deviation can be calculated with `sd()` and mean can be calculated with `mean()`. Sort the results in descending order by the coefficient.
+(3) Use a filtering join to make (and display) a new data frame consisting of all job number data for those NPAs identified in part 1.2.
+(4) Visualize job number variability / volatility using geom_line.
+(5) Visualize job number variability / volatility using a box plot. Order the boxes by descending median value (hint: use `fct_reorder`)
+
+```{r}
+#1.1 new tidy jobs data frame
+
+
+#1.2 table of NPAs
+
+
+#1.3 filtering join
+
+
+#1.4 geom_line
+
+
+#1.5 box plot
+
+
+```
+
+\newpage
+
+## Question 2
+
+(1) Using the Housing sheet from the QOL file, and following a similar process to that in #1, construct a new data frame (called housing) consisting of the number of housing units in each NPA in each year for which data is available.
+(2) Combine the jobs and housing data frames in such a way that the output includes all values from both data frames (remember your R4DS reading).
+(3) Combine the jobs and housing data frames in such a way that the output includes only those years for which both jobs and housing units data are available.
+(4) Summarize the number of NPAs that are (and are NOT) missing data in each year for each of these two combined data frames.
+
+```{r}
+#2.1 jobs data frame
+
+
+#2.2 combine data with all values
+
+
+#2.3 combine data with fewer values
+
+
+#2.4 tabulate results
+
+
+```
+
+\newpage
+
+## Question 3
+
+(1) Use the data file cty_cz_st_crosswalk.csv (which matches counties to CZs) and the Chetty data file from Lab 1 to add CZ name, relative mobility and absolute mobility variables to the data frame read from NC_ECE_2007-2014.xls.
+(2) Use the modified ECE data frame from (a) to visualize the relationship between relative mobility and QRIS rating in the year 2014.
+(3) Use the modified ECE data frame to visualize the distribution of QRIS points in each CZ in North Carolina in the year 2014.
+
+```{r}
+#3.1 create modified ECE data frame
+
+
+#3.2 visualize relative mobility vs. QRIS rating in 2014
+
+
+#3.3 visualize distribution of QRIS points in each NC CZ in 2014
+
+
+```
+
+\newpage
+
+## Honor Code Pledge
+
+On my honor I have neither given nor received unauthorized information regarding this work, I have followed and will continue to observe all regulations regarding it, and I am unaware of any violation of the Honor Code by others.
+
+> Type your full name here to pledge the assignment:
