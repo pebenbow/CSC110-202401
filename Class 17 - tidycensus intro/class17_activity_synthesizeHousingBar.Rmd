@@ -1,0 +1,96 @@
+---
+title: "Tidycensus"
+author: ""
+date: "2024-10-24"
+output: html_document
+---
+
+## Review
+
+Go to the Davidson Community Research Fellows (CRF) Community Dashboard here: <https://crf-dashboard.rc.davidson.edu/>
+
+Look at the bar graph under the Housing tab.
+
+## Setup
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# If you have not already installed the tidycensus package, copy and paste this line below into your console and run it once.
+# install.packages("tidycensus")
+
+library(tidyverse)
+library(tidycensus)
+
+# Set your API key (from homework)
+census_api_key("insertYourAPIKeyHere", install = TRUE, overwrite = TRUE)
+readRenviron("~/.Renviron")
+
+```
+
+## Part 1
+
+Use your census API key along with the tidycensus function `load_variables()` to get our variables.
+
+`load_variables()` executes a call to one of the census API endpoints. It accepts two parameters:(1) census year and (2) dataset ("acs5"). It returns all available variables for that subset.
+
+Use this knowledge to retrieve only the relevant variables for renters based on Tuesday's class.
+
+```{r}
+# Set the census year we want to query
+v_year <- 2020
+
+# Create the rent_vars data frame using load_variables()
+
+
+# Overwrite the rent_vars data frame with just a list of the variables we need
+
+
+# Load the list of variables into a vector
+
+
+```
+
+------------------------------------------------------------------------
+
+## Part 2
+
+Now that we know what variables to use, let's retrieve the actual ACS data using the `get_acs()` function:
+
+`get_acs()` executes a call to another census API endpoint. It accepts several required parameters, including a list of variables. It returns the census data you will need to recreate the CRF bar chart.
+
+Make a new data frame named "acs_data" that contains all the variables and numbers to be plotted in the bar graph, and pipe it into a ggplot to make the bar graph. Compare your result to the dashboard. What are the differences?
+
+```{r}
+# Invoke get_acs() to retrieve the data we need
+
+
+# Use geom_col() to plot the data in a column chart
+
+
+```
+
+---
+
+## Part 3
+
+Resolve the differences between your chart and the CRF chart using:
+- factors
+- `scale_fill_manual()` (using our_palette)
+- `scale_y_continuous()` (using housing_max)
+- `coord_flip()`
+- `labs()`
+
+What parts of your code would change if you were making the graph for homeowners?
+
+```{r}
+# Set our color palette
+our_palette <- c("#F8766D", "#00A9FF", "#00BE67", "#CD9600", "#7CAE00", "#00BFC4", "#C77CFF", "#FF61CC")
+
+# Use factors to change the sorting of our X and Y axis labels
+
+
+# Throw the data into ggplot!
+
+
+```
