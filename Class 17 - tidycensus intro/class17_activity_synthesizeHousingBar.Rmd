@@ -88,7 +88,25 @@ What parts of your code would change if you were making the graph for homeowners
 our_palette <- c("#F8766D", "#00A9FF", "#00BE67", "#CD9600", "#7CAE00", "#00BFC4", "#C77CFF", "#FF61CC")
 
 # Use factors to change the sorting of our X and Y axis labels
+c(
+  "Less than $10,000",
+  "$10,000 to $19,999",
+  "$20,000 to $34,999",
+  "$35,000 to $49,999",
+  "$50,000 to $74,999",
+  "$75,000 to $99,999",
+  "$100,000 or more"
+)
 
+c(
+  "Less than 20.0 percent",
+  "20.0 to 24.9 percent",
+  "25.0 to 29.9 percent",
+  "30.0 to 34.9 percent",
+  "35.0 to 39.9 percent",
+  "40.0 to 49.9 percent",
+  "50.0 percent or more"
+)
 
 # Throw the data into ggplot!
 
