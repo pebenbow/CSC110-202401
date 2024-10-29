@@ -1,0 +1,95 @@
+---
+title: "Class 18 - mapping data with choropleths"
+author: "Pete Benbow"
+date: "10/29/2024"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(tidycensus)
+library(tmap)
+```
+
+# Download census demographic data
+
+-   Try to recreate the choropleth for African American population that is visible on page 3 of the LOTF report.
+
+```{r}
+# Figure out what variable we need
+vars <- suppressMessages(
+  load_variables(
+    year    = 2010, 
+    dataset = "sf1"
+  ) %>%
+  filter(
+    startsWith(name, "P")
+  )
+)
+
+# Get Mecklenburg NC population counts from the decennial census (2010)
+meck_black <- suppressMessages(
+  get_decennial(
+    geography   = "tract", 
+    variables   = "P005004",
+    summary_var = "P001001", 
+    state       = "NC", 
+    county      = "Mecklenburg",
+    year        = 2010,
+    geometry    = TRUE,
+    show_call   = TRUE
+  )
+)
+
+# Now compute the percentage of black people in each zone
+
+
+# Make your first basic map
+
+
+# Use tm_polygons and tm_layout to get closer to the LOTF report visual
+
+
+```
+
+The original from the LOTF report:
+
+![](images/clipboard-1648448932.png)
+
+# Take a new approach, grabbing all the populations at once
+
+-   What change do you need to make to the code to make each map?
+
+```{r}
+# Define the variables we want to retrieve
+racevars <- c(
+  White    = "", 
+  Black    = "", 
+  Asian    = "", 
+  Hispanic = ""
+)
+
+# Get decennial data using our variables list
+
+
+# Divide each value by its summary value to arrive at a population percentage
+
+
+# Create a choropleth for Hispanic, another for Asian, another for White, etc.
+
+
+# What is perhaps a better way we can do this?
+
+```
+
+# Now map the percentage of Black or African American population in each state in the US
+-   Plot a choropleth of the USA showing density of Black/African American populations by state
+-   Include chart title, legend, and appropriate breaks
+-   Hint: use the option shift_geo = TRUE in get_decennial
+
+```{r}
+
+
+
+```
