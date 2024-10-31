@@ -25,9 +25,19 @@ library(cartogram)
 #     with filename specified by layer
 
 schools <- st_read(dsn = "cms_schools", layer = "CMS_Schools")
+cms <- read_excel("ccd_cms_1314.xlsx")
 
 # Create a data frame named "meck" and use get_decennial to retrieve 2010 geometry data for Mecklenburg County
-
+meck <- suppressMessages(
+  get_decennial(
+    geography = "county", 
+    variables = "P001001",
+    state     = "NC", 
+    county    = "Mecklenburg",
+    year      = 2010, 
+    geometry  = TRUE
+  ) 
+)
 
 # create data frame named "cms" and use mutate to calculate the HP/HM values
 
