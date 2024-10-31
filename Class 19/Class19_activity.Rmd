@@ -1,0 +1,100 @@
+---
+title: "Class 18: More mapping"
+author: "Laurie Heyer"
+date: "3/28/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+library(tidycensus)
+library(tmap)
+library(sf)
+library(cartogram)
+```
+
+# Making maps with multiple layers
+1. Try to reproduce the map of high-poverty, high-minority schools in CMS in 2013, as shown on p. 13 of LOTF. Recall that you wrote code to identify these schools in Lab 2.
+```{r}
+
+# Data source: http://maps.co.mecklenburg.nc.us/openmapping/data.html 
+
+# Read shape data in the folder specified by dsn, 
+#     with filename specified by layer
+
+schools <- st_read(dsn = "cms_schools", layer = "CMS_Schools")
+
+# Create a data frame named "meck" and use get_decennial to retrieve 2010 geometry data for Mecklenburg County
+
+
+# create data frame named "cms" and use mutate to calculate the HP/HM values
+
+
+# Use the unite() function to concatenate the school and school_type columns to get longer names
+
+
+# left join cms to our schools data frame and return only the variables we need
+
+
+# Create a data frame with just the HP/HM schools
+
+
+# Another data frame with all other schools
+
+
+# Switch to interactive mode
+
+
+# Use tmap to plot the locations of these schools in Mecklenburg County
+
+```
+
+
+# Making a cartogram
+2. Make a cartogram of the counties in NC, where size of each area is proportional to population, and the shading of the county represents the percent of the population that identifies as Black or African American. You will need the provided line of code to add a projection to the data you download from ACS.
+
+```{r}
+# Color-blind-friendly palette with grey, from http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/#a-colorblind-friendly-palette
+cbPalette <- c( "#E69F00", "#56B4E9", "#009E73", "#CC79A7", "#F0E442", "#0072B2", "#D55E00")
+
+# Get the population by county, call your data frame nc
+nc <- suppressMessages(
+  get_acs(
+    geography   = "county",
+    state       = "North Carolina",
+    variables   = "B02001_003",
+    summary_var = "B02001_001", 
+    year        = 2018, 
+    geometry    = TRUE
+  )
+)
+
+# Create a new data frame called "ncpct" from the original "nc" data frame
+# Add a variable named "pct_black" that gets % Black population
+# Use the separate() function to parse the county names from the NAME column
+ncpct <- nc %>%
+  
+
+# Use st_transform() to transform the lat/long coordinates
+proj_nc <- st_transform(
+  ncpct, 
+  coords = c("Longitude", "Latitude"), 
+  crs    = "+proj=utm +zone=17 +ellps=WGS84"
+)
+
+# Use cartogram_cont() to construct a continuous area cartogram
+
+
+# Set mode to plot
+
+
+# Build the cartogram
+
+
+# Now a choropleth for comparison
+
+
+```
+
