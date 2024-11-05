@@ -1,0 +1,117 @@
+---
+title: "CSC 110 - Lab 5"
+author: "Anonymous"
+date: "11/17/2024"
+output: word_document
+---
+
+# Instructions
+
+-   Leave the author as anonymous.
+-   Add a code chunk for each coding question. Use comments in your code to delineate your answers if a chunk has multiple code blocks.
+-   Use blockquotes for your written (non-code) responses to questions. This can be accomplished by adding a right caret (\>) at the start of each paragraph, or using the Format menu when viewing your Rmd file in Visual mode. The Honor Code pledge at the bottom of this assignment provides an example.
+-   For full credit, use piping whenever appropriate and give each plot a title and descriptive labels for all axes and legends.
+-   I will be grading on style, so make sure your code follows the guidelines in [R4DS Chapter 4](https://r4ds.hadley.nz/workflow-style).
+-   *IMPORTANT*: use the option `results='hide'` in any code chunk calling get_decennial or get_acs.
+-   Submit your knitted PDF to Gradescope, and correctly assign questions to page numbers. Check your PDF carefully before submitting!
+
+# Setup
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(tidycensus)
+library(tmap)
+library(sf)
+```
+
+\newpage
+
+# Part 1: Segregation maps
+
+1.  Run the following commands to download data from the 2010 US Census for black, white and Hispanic population counts in Mecklenburg County, then plot all three as percent of the total population in facets of a single plot.
+
+2.  Repeat steps in 1.1 for the county containing each of the following downtown areas: Jacksonville, FL; Indianapolis, IN, Washington, DC; Boston, MA; and San Jose, CA.
+
+For consistency, please use the following palette and breakpoint choices in each set of maps in Part 1: `tm_polygons("pct", palette = "Greens", breaks=c(0, 10, 25, 50, 75, 100))`
+
+```{r results='hide'}
+racevars <- c(
+  White    = "P005003", 
+  Black    = "P005004", 
+  Hispanic = "P004003"
+)
+
+meck <- get_decennial(
+  geography   = "tract", 
+  variables   = racevars, 
+  summary_var = "P001001", 
+  state       = "NC", 
+  county      = "Mecklenburg", 
+  year        = 2010, 
+  geometry    = TRUE
+) 
+
+```
+
+\newpage
+
+# Part 2: Economic mobility
+
+1.  Read in the Chetty dataset and make a table of the economic mobility for each of the six CZs in Part 1.
+
+2.  Discuss the qualitative similarities and differences in racial/ethnic segregation patterns in low mobility vs high mobility areas. Do these cities help you draw any conclusions about the relationships between segregation and economic mobility?
+
+\newpage
+
+# Part 3: Imagining no segregation
+
+1.  What was the overall percentage of black/white/Hispanic in Mecklenburg county in 2010? Hint: download a different decennial dataset to answer this question. Do not download geometry for this dataset.
+
+2.  What would the graphs of the white, black and Hispanic populations of Mecklenburg county look like if there were essentially no racial/ethnic segregation?
+
+\newpage
+
+# Part 4: Segregation over time
+
+Has Mecklenburg County become more or less segregated over time? To support your answer:
+
+1.  Compare maps for 2000 and 2018 to the 2010 maps above.
+
+2.  Propose a quantitative measure of segregation (either from the research literature or your own creative approach). Explain your choice.
+
+3.  Calculate and visualize your proposed measure across the three years.
+
+\newpage
+
+# Part 5: Mapping poverty
+
+1.  Find the variable in ACS that measures % in poverty.
+
+2.  Map this variable in Mecklenburg County to reproduce the poverty segregation graph on page 2 of the LOTF report.
+
+\newpage
+
+# Part 6: Mapping wealth
+
+1.  Find the variable in ACS that measures % with above \$200K income.
+
+2.  Map this variable to reproduce the wealth segregation graph on page 2 of the LOTF report.
+
+\newpage
+
+# Part 7: Mapping landfills
+
+1.  Use the Landfills data from the [Mecklenburg County Open Mapping project](http://maps.co.mecklenburg.nc.us/openmapping/data.html) (included under the Landfills folder in your Lab 5 directory) to make a map that could be used to illustrate inequity relative to landfill locations.
+
+2.  Describe another type of visualization (not a map) to illustrate this inequity. Be specific about the type, variables and axes of this hypothetical plot.
+
+\newpage
+
+# Honor Code Pledge
+
+On my honor I have neither given nor received unauthorized information regarding this work, I have followed and will continue to observe all regulations regarding it, and I am unaware of any violation of the Honor Code by others.
+
+(Type "pledged" in the box below to pledge this assignment anonymously.)
+
+> your name here

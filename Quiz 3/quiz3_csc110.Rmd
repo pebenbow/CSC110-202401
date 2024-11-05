@@ -1,0 +1,103 @@
+---
+title: "CSC 110 - Quiz 3"
+author: ""
+date: "11/10/2024"
+output: word_document
+---
+
+# Instructions
+
+-   You must work alone on this quiz. You may ask me clarifying questions, but you may not ask questions or otherwise get help from anyone else.
+-   You may use all resources from the class, including the textbook, readings, videos, in-class activities, keys, and notes.
+-   You may also look for help on functions inside of R Studio.
+-   You can use the internet for hints, but NO copy-paste.
+-   Use blockquotes for your written (non-code) responses to questions. This can be accomplished by adding a right caret (\>) at the start of each paragraph, or using the Format menu when viewing your Rmd file in Visual mode. The Honor Code pledge at the bottom of this assignment provides an example.
+-   For coding questions, answer in the provided code chunk. Use comments in your code to delineate your answers if a chunk has multiple code blocks.
+-   For full credit, use piping whenever appropriate, give each plot a title and descriptive labels for all axes and legends, and use appropriate bin widths, cut widths, and boundaries.
+-   I will be grading on style, so make sure your code follows the guidelines in [R4DS Chapter 4](https://r4ds.hadley.nz/workflow-style).
+-   Submit your knitted PDF to Gradescope, and correctly assign questions to page numbers. Check your PDF carefully before submitting!
+
+> This quiz is based on a data set from Chetty, et al., the same author team as the economic mobility data we have worked with, but a different paper and different data that examines the role of colleges in economic mobility. If you wish, you can read about this study [here](https://opportunityinsights.org/paper/mobilityreportcards/). Table 1 and the corresponding codebook that explains the variables have been provided for you in the quiz files.
+
+# Setup
+
+Load the packages you need and import the Table 1 data from the included CSV file.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+
+```
+
+\newpage
+
+# Part 1
+
+1.  What does each row in this data set represent?
+
+2.  Make and display a table of the number of colleges in each state, sorted by number.
+
+3.  Explain why there are more than 50 rows in the table you produced in 1.2 even though there are only 50 states, and write code to show what is in these extra rows. Show your work and the output.
+
+4.  For the three CZs in North Carolina with the most colleges, output a table of the CZ name, number of colleges in the CZ, and the average value of par_median in the CZ, sorted by the number of colleges in the CZ.
+
+```{r}
+
+
+```
+
+\newpage
+
+# Part 2
+
+1.  Make a new column called pk_ratio that is the ratio of parent median income to child median income, and another new column to indicate if this ratio is low (\<=2), medium (between 2 and 3), or high (\>= 3), and show your output.
+
+2.  Graphically display the number of colleges with low, medium and high parent to child median income by CZ in North Carolina.
+
+```{r}
+
+```
+
+\newpage
+
+# Part 3
+
+1.  Graphically display the number of colleges in each state
+
+2.  Graphically display the distribution of mr_kq5_pq1
+
+```{r}
+
+
+```
+
+\newpage
+
+# Part 4
+
+Visualize the variability in mr_kq5_pq1 by CZ name in North Carolina
+
+```{r}
+
+```
+
+\newpage
+
+# Part 5
+
+Visualize the relationship between pk_ratio, mr_kq5_pq1 and trend_parq1 using geom_boxplot
+
+```{r}
+
+```
+
+\newpage
+
+# Honor Code Pledge
+
+On my honor I have neither given nor received unauthorized information regarding this work, I have followed and will continue to observe all regulations regarding it, and I am unaware of any violation of the Honor Code by others.
+
+(Type your full name in the box below to pledge this assignment.)
+
+> your name here
